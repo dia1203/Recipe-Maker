@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recipe Library</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📖 Recipe Library</h1>
+      <div class="header-controls">
+        <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+        <button id="logoutBtn" class="logout-btn" onclick="handleLogout()">
+          <span>🚪 Logout</span>
+        </button>
+      </div>
+    </div>
+
+    <input type="text" id="searchInput" placeholder="Search recipe..." onkeyup="searchRecipe()">
+
+    <div class="filter-container">
+      <h3>Filter by Type:</h3>
+      <button class="filter-btn active" onclick="filterRecipes('all', this)">All Recipes</button>
+      <button class="filter-btn" onclick="filterRecipes('Veg', this)">🥬 Vegetarian</button>
+      <button class="filter-btn" onclick="filterRecipes('Non-Veg', this)">🍖 Non-Vegetarian</button>
+      <button onclick="location.reload()" style="margin-left: 20px; background-color: #17a2b8; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer;">🔄 Refresh</button>
+    </div>
+
+    <div id="recipeCount" class="recipe-count"></div>
+    <div id="recipeList"></div>
+
+    <h2>Add Your Recipe</h2>
+    <form id="recipeForm" onsubmit="addRecipe(event)">
+      <input type="text" id="recipeName" placeholder="Recipe Name" required><br>
+      
+      <textarea id="ingredients" placeholder="Ingredients" required></textarea><br>
+      
+      <textarea id="steps" placeholder="Preparation Steps" required></textarea><br>
+      
+      <input type="text" id="time" placeholder="Preparation Time (e.g. 30 mins)" required><br>
+      
+      <input type="text" id="imageUrl" placeholder="Image URL of Dish" required><br>
+
+      <label>
+        <input type="radio" name="type" value="Veg" checked> Veg
+      </label>
+      <label>
+        <input type="radio" name="type" value="Non-Veg"> Non-Veg
+      </label><br>
+
+      <button type="submit">Add Recipe</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
